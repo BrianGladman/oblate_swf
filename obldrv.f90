@@ -11,7 +11,7 @@
     real(knd), dimension(:), allocatable ::    eta, r1c, r1dc, r2c, r2dc
     integer, dimension(:), allocatable ::      ir1e, ir1de, ir2e, ir2de, naccr
     real(knd), dimension (:,:), allocatable :: s1c, s1dc
-    integer, dimension(:,:), allocatable ::    is1e, is1de, naccs
+    integer, dimension(:,:), allocatable ::    is1e, is1de, naccs, naccds
 
     kindd =  8
     kindq = 16
@@ -29,7 +29,7 @@
     allocate (eta(narg), r1c(lnum), r1dc(lnum), r2c(lnum), r2dc(lnum))
     allocate (ir1e(lnum), ir1de(lnum), ir2e(lnum), ir2de(lnum), naccr(lnum))
     allocate (s1c(lnum, narg), s1dc(lnum, narg))
-    allocate (is1e(lnum, narg), is1de(lnum, narg), naccs(lnum, narg))
+    allocate (is1e(lnum, narg), is1de(lnum, narg), naccs(lnum, narg), naccds(lnum, narg))
 
     if (iopang /= 0) then
         do j = 1, narg  
@@ -43,7 +43,7 @@
             call oblfcn(c, m, lnum, ioprad, x, iopang, iopnorm, narg, eta, &
                         r1c, ir1e, r1dc, ir1de, r2c, &
                         ir2e, r2dc, ir2de, naccr, &
-                        s1c, is1e, s1dc, is1de, naccs)
+                        s1c, is1e, s1dc, is1de, naccs, naccds)
         
         if (ioprad /= 0) then
 
@@ -77,15 +77,15 @@
 
                 do j = 1, narg
                     arg = arg1 + (j - 1) * darg
-                    write(30, 80) arg, s1c(i, j), is1e(i, j), s1dc(i, j), is1de(i, j), naccs(i, j)
-80                  format(1x,f19.14,2x,f17.14,2x,i5,2x,f17.14,2x,i5,2x,i2)
+                    write(30, 90) arg, s1c(i, j), is1e(i, j), s1dc(i, j), is1de(i, j), naccs(i, j), naccds(i, j)
+80                  format(1x,f19.14,2x,f17.14,2x,i5,2x,f17.14,2x,i5,2x,i2, ', ', i2)
 90                  format(1x,f17.14,2x,f17.14,2x,i5,2x,f17.14,2x,i5,2x,i2,', ',i2)
                 end do
             end do
         end if
     end do
     
-    deallocate (is1e, is1de, naccs)
+    deallocate (is1e, is1de, naccs, naccds)
     deallocate (s1c, s1dc)
     deallocate (ir1e, ir1de, ir2e, ir2de, naccr)
     deallocate (eta, r1c, r1dc, r2c, r2dc)

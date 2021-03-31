@@ -614,18 +614,16 @@ end if
           igau=0
           ibflag1=1
           ibflag2=1
-if (debug) then
-          if(knd.eq.kindd.and.ioprad.ne.0) write(40,20) x,c
-20        format(1x,'x = ',e23.14,/,1x,'c = ',e23.14)
-          if(knd.eq.kindq.and.ioprad.ne.0) write(40,25) x,c
-25        format(1x,'x = ',e38.30,/,1x,'c = ',e38.30)
-end if
           wront=1.0e0_knd/(c*(x*x+1.0e0_knd))
             do 1540 mi=1,mnum
             m=mmin+minc*(mi-1)
             em=m
             m2=m+m
 if (debug) then
+          if(knd.eq.kindd.and.ioprad.ne.0) write(40,20) x,c
+20        format(1x,'x = ',e23.14,/,1x,'c = ',e23.14)
+          if(knd.eq.kindq.and.ioprad.ne.0) write(40,25) x,c
+25        format(1x,'x = ',e38.30,/,1x,'c = ',e38.30)
             if(knd.eq.kindd.and.iopang.ne.0) write(50,30) c,m
 30          format(1x,'c = ',e23.14,'; m = ',i5)
             if(knd.eq.kindq.and.iopang.ne.0) write(50,35) c,m
