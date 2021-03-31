@@ -31,11 +31,9 @@
     allocate (s1c(lnum, narg), s1dc(lnum, narg))
     allocate (is1e(lnum, narg), is1de(lnum, narg), naccs(lnum, narg))
 
-    pi = acos(-1.0_knd)
-    api = pi / 180.0e0_knd
     if (iopang /= 0) then
         do j = 1, narg  
-            eta(j) = cos(api * (arg1 + (j - 1) * darg))        
+            eta(j) = arg1 + (j - 1) * darg
         end do
     end if
 
