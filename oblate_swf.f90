@@ -663,7 +663,7 @@ if (debug) then
           if(knd == kindd .and. ioprad /= 0) write(40, 20) x, c
 20        format(1x,'x = ',e23.14,/,1x,'c = ',e23.14)
           if(knd == kindq .and. ioprad /= 0) write(40, 25) x, c
-25        format(1x,'x = ',e38.30,/,1x,'c = ',e38.30)
+25        format(1x,'x = ',e39.30,/,1x,'c = ',e39.30)
 end if
           wront = 1.0e0_knd / (c * (x * x + 1.0e0_knd))
             do 1540 mi = 1, mnum
@@ -674,7 +674,7 @@ if (debug) then
             if(knd == kindd .and. iopang /= 0) write(50, 30) c, m
 30          format(1x,'c = ',e23.14,'; m = ',i5)
             if(knd == kindq .and. iopang /= 0) write(50, 35) c, m
-35          format(1x,'c = ',e38.30,'; m = ',i5)
+35          format(1x,'c = ',e39.30,'; m = ',i5)
             if(ioprad /= 0) write(40, 40) m
 40          format(1x,'m = ',i5)
 end if
@@ -682,7 +682,7 @@ if (output) then
             if(knd == kindd .and. iopang /= 0) write(30, 50) c, m
 50          format(1x, e23.14, i5)
             if(knd == kindq .and. iopang /= 0) write(30, 55) c, m
-55          format(1x, e38.30, i5)
+55          format(1x, e39.30, i5)
 end if
             rm = m
             rm2 = m + m
@@ -929,7 +929,7 @@ if (output) then
             if(knd == kindd .and. ioprad /= 0) write(20, 260) x, c, m
 260         format(1x, e23.14, e23.14, i5)
             if(knd == kindq .and. ioprad /= 0) write(20, 265) x, c, m
-265         format(1x, e38.30, e38.30, i5)
+265         format(1x, e39.30, e39.30, i5)
 end if
               do 1510 li = 1, lnum
               l = m + (li - 1)
