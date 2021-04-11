@@ -3,7 +3,7 @@ module param
     logical, parameter :: debug = .true.
     logical, parameter :: warn = .true.
     logical, parameter :: output = .true.
-    logical, parameter :: suffix = .false.    
+    logical, parameter :: suffix = .false.
 end module param
 
 program oblfcn
@@ -582,7 +582,7 @@ end if
         integer neeb(jnenmax),neeb1(jnebmax),limpsv(jnenmax), &
                 limp1sv(jnebmax),limnsv(jnenmax),jelimsv(jnenmax), &
                 jelim1sv(jnebmax),limjsv(jnebmax)
-        
+
         character chr_e, chr_w
         if (suffix) then
             chr_e = 'e'
@@ -2503,13 +2503,13 @@ end if
 if (debug) then
                 if(ioparg.eq.0.and.iopang.eq.1) write(50,1420) arg(jarg),naccs(jarg)
                 if(ioparg.eq.0.and.iopang.eq.2) write(50,1425) arg(jarg),naccs(jarg),naccds(jarg)
-1420            format(1x,'theta = ',e24.15,'   accuracy = ',i2, ' digits.')
-1425            format(1x,'theta = ',e24.15,'   s1 and s1d accuracy = ', i2,' and ',i2,' digits.')
+1420            format(1x,'theta = ',e23.14,'   accuracy = ',i2, ' digits.')
+1425            format(1x,'theta = ',e23.14,'   s1 and s1d accuracy = ', i2,' and ',i2,' digits.')
 
                 if(ioparg.eq.1.and.iopang.eq.1) write(50,1430) barg(jarg),naccs(jarg)
                 if(ioparg.eq.1.and.iopang.eq.2) write(50,1435) barg(jarg),naccs(jarg),naccds(jarg)
-1430            format(1x,'eta = ',e24.15,'   accuracy = ',i2, ' digits.')
-1435            format(1x,'eta = ',e24.15,'   s1 and s1d accuracy = ', i2,' and ',i2,' digits.')
+1430            format(1x,'eta = ',e23.14,'   accuracy = ',i2, ' digits.')
+1435            format(1x,'eta = ',e23.14,'   s1 and s1d accuracy = ', i2,' and ',i2,' digits.')
 end if
 if (output) then
                 if(ioparg.eq.0.and.iopang.eq.1) write(30,1440) arg(jarg),s1c(jarg),is1e(jarg),naccs(jarg)
@@ -3936,14 +3936,14 @@ end if
                   qsum,qsump,r1c,r1dc,r2c,r2dc,rm,spsum,spsump,spdsum, &
                   spdsump,ten,termpq,test,testd,testm,testdm,testp,tm, &
                   wronc,wronca,wroncb,wront,x,xden,xcoef,xrhs
-        real(knd) anumt1,anumt2,anumt3,anumt4,dent1,dent2          
+        real(knd) anumt1,anumt2,anumt3,anumt4,dent1,dent2
         real(knd) drhor(maxdr),enr(maxd),enrneg(maxmp),fajo(lnum+1), &
                   prx(maxpdr),pdrx(maxpdr),qdl(lnum),qdr(maxq), &
                   qdqr(maxmp),ql(lnum),qr(maxq)
 !
 !  integer arrays
         integer ifajo(lnum+1),iqdl(lnum),iql(lnum)
-!       
+!
         ten=10.0e0_knd
         dec=ten**(-ndec-1)
         dconp=dec
@@ -4250,7 +4250,7 @@ end if
           nacct3=ndec-(max(ifsub,nsqsum)+numc3)
           if(nacct3.gt.ndec) nacct3=ndec
           nacct4=ndec-(max(ifsub,nsqnsum)+numc4)
-          if(nacct4.gt.ndec) nacct4=ndec 
+          if(nacct4.gt.ndec) nacct4=ndec
           naccnum=min(nacct1,nacct2,nacct3,nacct4)
           if(naccnum.lt.0) naccnum=0
           dent1=r1c*pdsum*ten**(ir1e+iqdsum)
@@ -4265,9 +4265,9 @@ end if
             naccd2=ndec-nspsum
             naccd1=ndec-nspdsum-nratio
             end if
-          nacclest=min(naccnum,naccd1,naccd2)  
+          nacclest=min(naccnum,naccd1,naccd2)
           if(nacclest.gt.naccr1) nacclest=naccr1
-          if(nacclest.gt.itestm-2) nacclest=itestm-2 
+          if(nacclest.gt.itestm-2) nacclest=itestm-2
           if(nacclest.lt.0) nacclest=0
             if(nacclest.gt.naccleg) then
             xrhs=wront-(qdsum+qndsum)*r1c*ten**(ir1e+iqdsum)+ &
@@ -4315,7 +4315,7 @@ end if
         nqnds=0
         if(qndsum/r2dc.eq.0.0e0_knd) nqnds=-ndec
         if(m.ne.0.and.iopqnsum.ne.0.and.qndsum/r2dc.ne.0.0e0_knd) &
-                      nqnds=int(log10(abs(qndsum/r2dc)))             
+                      nqnds=int(log10(abs(qndsum/r2dc)))
         if(nqns.lt.(-ndec-1).and.nqnds.lt.(-ndec-1)) iopqnsum=0
         if(qnsum.eq.0.0e0_knd.and.qndsum.eq.0.0e0_knd) iopqnsum=0
         npds=0
@@ -5342,13 +5342,13 @@ if (debug) then
         if(knd.eq.kindd.and.ioprad.eq.0.and.iflag.eq.0) write(50,150) l, eigval,eigstart
         if(knd.eq.kindq.and.ioprad.ne.0.and.iflag.eq.0) write(40,155) l, eigval,eigstart
         if(knd.eq.kindq.and.ioprad.eq.0.and.iflag.eq.0) write(50,155) l, eigval,eigstart
-150     format(1x,'l =',i5,6x,'eigenvalue =',e24.15, '; estimate =',e24.15)
+150     format(1x,'l =',i5,6x,'eigenvalue =',e23.14, '; estimate =',e23.14)
 155     format(1x,'l =',i5,6x,'eigenvalue =',e39.31, '; estimate =',e39.31)
         if(knd.eq.kindd.and.ioprad.ne.0.and.iflag.eq.1) write(40,160) l, eigstart
         if(knd.eq.kindd.and.ioprad.eq.0.and.iflag.eq.1) write(50,160) l, eigstart
         if(knd.eq.kindq.and.ioprad.ne.0.and.iflag.eq.1) write(40,165) l, eigstart
         if(knd.eq.kindq.and.ioprad.eq.0.and.iflag.eq.1) write(50,165) l, eigstart
-160     format(1x,'l =',i5,6x,'eigenvalue =',e24.15,' obtained' &
+160     format(1x,'l =',i5,6x,'eigenvalue =',e23.14,' obtained' &
                      ' from tridiagonal matrix')
 165     format(1x,'l =',i5,6x,'eigenvalue =',e39.31,' obtained' &
                      ' from tridiagonal matrix')
