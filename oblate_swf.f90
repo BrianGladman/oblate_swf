@@ -1295,8 +1295,8 @@ end if
 if (debug) then
               if(knd == kindd) write(40, 570) r11c, ir11e, r1d1c, ir1d1e
               if(knd == kindq) write(40, 575) r11c, ir11e, r1d1c, ir1d1e
-570           format(10x,'r1 = ', f19.15, i5, 5x,'r1d = ',f19.15, i5)
-575           format(10x,'r1 = ', f34.30, i5, 5x,'r1d = ',f34.30, i5)
+570           format(10x,'r1 = ', f17.14, i5, 5x,'r1d = ',f17.14, i5)
+575           format(10x,'r1 = ', f34.31, i5, 5x,'r1d = ',f34.31, i5)
 end if
               r1c(li) = r11c
               ir1e(li) = ir11e
@@ -1507,9 +1507,9 @@ if (debug) then
 720           if(knd == kindd) write(40, 730) etaval1, nee1, r1ec, ir1ee, r1dec, ir1dee
               if(knd == kindq) write(40, 735) etaval1, nee1, r1ec, ir1ee, r1dec, ir1dee
 730           format(15x,'eta = ',f12.9,'; nee1 = ',i4,/,10x,'r1 = ', &
-                      f19.15, i5, 5x,'r1d = ',f19.15, i5)
+                      f17.14, i5, 5x,'r1d = ',f17.14, i5)
 735                   format(15x,'eta = ',f12.9,'; nee1 = ',i4,/,10x,'r1 = ', &
-                      f34.30, i5, 5x,'r1d = ',f34.30, i5)
+                      f34.31, i5, 5x,'r1d = ',f34.31, i5)
 end if
                 if(nsub1 <= 1 .or. nsubd1 <= 1) then
                 if(idir == 0) idir = -1
@@ -2561,8 +2561,8 @@ end if
 if (debug) then
                 if(iopang == 1) write(50, 1430) barg(jarg), naccs(jarg)
                 if(iopang == 2) write(50, 1435) barg(jarg), naccs(jarg), naccds(jarg)
-1430            format(1x,'eta = ',e23.14,'   accuracy = ',i2,' digits.')
-1435            format(1x,'eta = ',e23.14,'   s1 and s1d accuracy = ',i2,' and ',i2,' digits.')
+1430            format(1x,'eta = ',f17.14,'   accuracy = ',i2,' digits.')
+1435            format(1x,'eta = ',f17.14,'   s1 and s1d accuracy = ',i2,' and ',i2,' digits.')
 end if
 if (output) then
                 if(iopang == 1) write(30, 1460) barg(jarg), s1c(jarg), is1e(jarg), naccs(jarg)
