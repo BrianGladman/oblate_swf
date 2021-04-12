@@ -1296,7 +1296,7 @@ if (debug) then
               if(knd == kindd) write(40, 570) r11c, ir11e, r1d1c, ir1d1e
               if(knd == kindq) write(40, 575) r11c, ir11e, r1d1c, ir1d1e
 570           format(10x,'r1 = ', f17.14, i5, 5x,'r1d = ',f17.14, i5)
-575           format(10x,'r1 = ', f34.31, i5, 5x,'r1d = ',f34.31, i5)
+575           format(10x,'r1 = ', f33.30, i5, 5x,'r1d = ',f33.30, i5)
 end if
               r1c(li) = r11c
               ir1e(li) = ir11e
@@ -1509,7 +1509,7 @@ if (debug) then
 730           format(15x,'eta = ',f12.9,'; nee1 = ',i4,/,10x,'r1 = ', &
                       f17.14, i5, 5x,'r1d = ',f17.14, i5)
 735                   format(15x,'eta = ',f12.9,'; nee1 = ',i4,/,10x,'r1 = ', &
-                      f34.31, i5, 5x,'r1d = ',f34.31, i5)
+                      f33.30, i5, 5x,'r1d = ',f33.30, i5)
 end if
                 if(nsub1 <= 1 .or. nsubd1 <= 1) then
                 if(idir == 0) idir = -1
@@ -2578,10 +2578,10 @@ if (debug) then
                 if(knd == kindq .and. iopang == 2) write(50, 1495) s1c(jarg), is1e(jarg), s1dc(jarg), is1de(jarg)
 end if
 1480            format(12x,'s1 = ',f17.14, 2x, i5)
-1485            format(12x,'s1 = ',f34.30, 2x, i5)
+1485            format(12x,'s1 = ',f33.30, 2x, i5)
 1490            format(12x,'s1 = ',f17.14, 2x, i5, 5x,'s1d = ',f17.14, &
                        2x, i5)
-1495            format(12x,'s1 = ',f34.30, 2x, i5, 5x,'s1d = ',f34.30, &
+1495            format(12x,'s1 = ',f33.30, 2x, i5, 5x,'s1d = ',f33.30, &
                        2x, i5)
 1500            continue
 1510          continue
@@ -5391,14 +5391,14 @@ if (debug) then
         if(knd == kindq .and. ioprad /= 0 .and. iflag == 0) write(40, 155) l, eigval, eigstart
         if(knd == kindq .and. ioprad == 0 .and. iflag == 0) write(50, 155) l, eigval, eigstart
 150     format(1x,'l =',i5, 6x,'eigenvalue =',e23.14, '; estimate =',e23.14)
-155     format(1x,'l =',i5, 6x,'eigenvalue =',e39.31, '; estimate =',e39.31)
+155     format(1x,'l =',i5, 6x,'eigenvalue =',e39.30, '; estimate =',e39.30)
         if(knd == kindd .and. ioprad /= 0 .and. iflag == 1) write(40, 160) l, eigstart
         if(knd == kindd .and. ioprad == 0 .and. iflag == 1) write(50, 160) l, eigstart
         if(knd == kindq .and. ioprad /= 0 .and. iflag == 1) write(40, 165) l, eigstart
         if(knd == kindq .and. ioprad == 0 .and. iflag == 1) write(50, 165) l, eigstart
 160     format(1x,'l =',i5, 6x,'eigenvalue =',e23.14,' obtained' &
                      ' from tridiagonal matrix')
-165     format(1x,'l =',i5, 6x,'eigenvalue =',e39.31,' obtained' &
+165     format(1x,'l =',i5, 6x,'eigenvalue =',e39.30,' obtained' &
                      ' from tridiagonal matrix')
 end if
 !
