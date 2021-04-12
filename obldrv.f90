@@ -21,6 +21,9 @@
     open(1, file='oblfcn.dat')
     open(20 ,file='fort.20')
     open(30, file='fort.30')
+    open(20 ,file='fort.40')
+    open(30, file='fort.50')
+    open(20 ,file='fort.60')
 
 !
 !  read input data
@@ -92,8 +95,11 @@
     deallocate (s1c, s1dc)
     deallocate (ir1e, ir1de, ir2e, ir2de, naccr)
     deallocate (eta, r1c, r1dc, r2c, r2dc)
-    close(1)
+    close(60)
+    close(50)
+    close(40)
     close(30)
     close(20)
+    close(1)
 
 end program obldrv
