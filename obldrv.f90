@@ -7,6 +7,7 @@
     integer   i, im, j, mmin, minc, mnum, m, l, lnum, ioprad, iopang, &
               iopnorm, ioparg, narg, kind, kindd, kindq
     real(knd) c, x, x1, arg, arg1, darg, pi, api
+    character chr
 
     real(knd), dimension(:), allocatable ::    eta, r1c, r1dc, r2c, r2dc
     integer, dimension(:), allocatable ::      ir1e, ir1de, ir2e, ir2de, naccr
@@ -60,9 +61,11 @@
 
             do i = 1, lnum
                 l = m + i - 1
-                if(ioprad == 2) write(20, 30) l, r1c(i), ir1e(i), r1dc(i), ir1de(i), r2c(i), ir2e(i), r2dc(i), ir2de(i), naccr(i)
+                chr = 'w'
+                if (naccr(i) < 0) chr = 'e'
+                if(ioprad == 2) write(20, 30) l, r1c(i), ir1e(i), r1dc(i), ir1de(i), r2c(i), ir2e(i), r2dc(i), ir2de(i), abs(naccr(i)), chr
                 if(ioprad == 1) write(20, 40) l, r1c(i), ir1e(i), r1dc(i), ir1de(i)
-30              format(1x,i5,2x,4(f17.14,i6,2x),i2, ' ')
+30              format(1x,i5,2x,4(f17.14,i6,2x),i2, a)
 40              format(1x,i5,2x,2(f17.14,i6,2x),i2)
             end do
 

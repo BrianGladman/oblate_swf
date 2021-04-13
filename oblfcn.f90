@@ -3,7 +3,6 @@ module param
     logical, parameter :: debug = .true.
     logical, parameter :: warn = .true.
     logical, parameter :: output = .true.
-    logical, parameter :: suffix = .false.
 end module param
 
 program oblfcn
@@ -584,13 +583,8 @@ end if
                 jelim1sv(jnebmax),limjsv(jnebmax)
 
         character chr_e, chr_w
-        if (suffix) then
-            chr_e = 'e'
-            chr_w = 'w'
-        else
-            chr_e = ' '
-            chr_w = ' '
-        end if
+        chr_e = 'e'
+        chr_w = 'w'
 
         ten=10.0e0_knd
         dec=ten**(-ndec-1)
@@ -2503,8 +2497,8 @@ end if
 if (debug) then
                 if(ioparg.eq.0.and.iopang.eq.1) write(50,1420) arg(jarg),naccs(jarg)
                 if(ioparg.eq.0.and.iopang.eq.2) write(50,1425) arg(jarg),naccs(jarg),naccds(jarg)
-1420            format(1x,'theta = ',f17.14,'   accuracy = ',i2, ' digits.')
-1425            format(1x,'theta = ',f17.14,'   s1 and s1d accuracy = ', i2,' and ',i2,' digits.')
+1420            format(1x,'theta = ',f19.14,'   accuracy = ',i2, ' digits.')
+1425            format(1x,'theta = ',f19.14,'   s1 and s1d accuracy = ', i2,' and ',i2,' digits.')
 
                 if(ioparg.eq.1.and.iopang.eq.1) write(50,1430) barg(jarg),naccs(jarg)
                 if(ioparg.eq.1.and.iopang.eq.2) write(50,1435) barg(jarg),naccs(jarg),naccds(jarg)
@@ -2515,8 +2509,8 @@ if (output) then
                 if(ioparg.eq.0.and.iopang.eq.1) write(30,1440) arg(jarg),s1c(jarg),is1e(jarg),naccs(jarg)
                 if(ioparg.eq.0.and.iopang.eq.2) write(30,1450) arg(jarg),s1c(jarg),is1e(jarg),s1dc(jarg), &
                                                                is1de(jarg),naccs(jarg),naccds(jarg)
-1440            format(1x,f17.14,2x,f17.14,2x,i5,2x,', ',i2)
-1450            format(1x,f17.14,2x,f17.14,2x,i5,2x,f17.14,2x,i5,2x,i2,', ',i2)
+1440            format(1x,f19.14,2x,f17.14,2x,i5,2x,', ',i2)
+1450            format(1x,f19.14,2x,f17.14,2x,i5,2x,f17.14,2x,i5,2x,i2,', ',i2)
                 if(ioparg.eq.1.and.iopang.eq.1) write(30,1460) barg(jarg),s1c(jarg),is1e(jarg),naccs(jarg)
                 if(ioparg.eq.1.and.iopang.eq.2) write(30,1470) barg(jarg),s1c(jarg),is1e(jarg),s1dc(jarg), &
                                                                is1de(jarg),naccs(jarg),naccds(jarg)

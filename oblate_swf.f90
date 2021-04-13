@@ -636,13 +636,7 @@ end if
                 jelim1sv(jnebmax), limjsv(jnebmax)
 
         character chr_e, chr_w
-        if (suffix) then
-            chr_e = 'e'
-            chr_w = 'w'
-        else
-            chr_e = ' '
-            chr_w = ' '
-        end if
+        chr_w = 'e'; chr_w = 'w'
 
         ten = 10.0e0_knd
         dec = ten ** (-ndec - 1)
@@ -2379,7 +2373,7 @@ end if
                 if(x == 0.0e0_knd) then
 if (output) then
                 write(20, 1380) l, r1c(li), ir1e(li), r1dc(li), ir1de(li), &
-                         r2c(li), ir2e(li), r2dc(li), ir2de(li), naccr, chr_e
+                         r2c(li), ir2e(li), r2dc(li), ir2de(li), -naccr, chr_e
 end if
                 go to 1400
                 end if
@@ -2461,7 +2455,7 @@ end if
                     naccr /= naccint) then
 if (output) then
                 write(20, 1380) l, r1c(li), ir1e(li), r1dc(li), ir1de(li), &
-                         r2c(li), ir2e(li), r2dc(li), ir2de(li), naccr, chr_e
+                         r2c(li), ir2e(li), r2dc(li), ir2de(li), -naccr, chr_e
 end if
                 else
 if (output) then
