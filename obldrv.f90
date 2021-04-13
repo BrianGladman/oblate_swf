@@ -1,9 +1,9 @@
  program obldrv
     use param
     use oblate_swf
-    
+
     implicit none
-    
+
     integer   i, im, j, mmin, minc, mnum, m, l, lnum, ioprad, iopang, &
               iopnorm, ioparg, narg, kind, kindd, kindq
     real(knd) c, x, x1, arg, arg1, darg, pi, api
@@ -38,7 +38,7 @@
     allocate (is1e(lnum, narg), is1de(lnum, narg), naccs(lnum, narg), naccds(lnum, narg))
 
     if (iopang /= 0) then
-        do j = 1, narg  
+        do j = 1, narg
             eta(j) = arg1 + (j - 1) * darg
         end do
     end if
@@ -50,14 +50,14 @@
                         r1c, ir1e, r1dc, ir1de, r2c, &
                         ir2e, r2dc, ir2de, naccr, &
                         s1c, is1e, s1dc, is1de, naccs, naccds)
-        
+
         if (ioprad /= 0) then
 
             if(knd == kindd) write(20, 10) x, c, m
             if(knd == kindq) write(20, 20) x, c, m
 10          format(1x,e23.14,e23.14,i5)
 20          format(1x,e39.30,e39.30,i5)
-            
+
             do i = 1, lnum
                 l = m + i - 1
                 if(ioprad == 2) write(20, 30) l, r1c(i), ir1e(i), r1dc(i), ir1de(i), r2c(i), ir2e(i), r2dc(i), ir2de(i), naccr(i)
@@ -65,16 +65,16 @@
 30              format(1x,i5,2x,4(f17.14,i6,2x),i2, ' ')
 40              format(1x,i5,2x,2(f17.14,i6,2x),i2)
             end do
-            
+
         end if
 
         if (iopang /= 0) then
-            
+
             if(knd == kindd) write(30, 50) c, m
             if(knd == kindq) write(30, 60) c, m
 50          format(1x,e23.14,i5)
 60          format(1x,e39.30,i5)
-            
+
             do i = 1, lnum
                 l = m + i - 1
 
@@ -90,7 +90,7 @@
             end do
         end if
     end do
-    
+
     deallocate (is1e, is1de, naccs, naccds)
     deallocate (s1c, s1dc)
     deallocate (ir1e, ir1de, ir2e, ir2de, naccr)
