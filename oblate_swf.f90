@@ -2839,8 +2839,8 @@ end if
 if (debug) then
         if(knd == kindd) write(50, 200) factor, ifactor
         if(knd == kindq) write(50, 205) factor, ifactor
-200     format(1x,'square root of Legendre norm = ',f19.15, 2x, i5)
-205     format(1x,'square root of Legendre norm = ',f34.30, 2x, i5)
+200     format(1x,'square root of Legendre norm = ',e23.14, 2x, i5)
+205     format(1x,'square root of Legendre norm = ',e39.30, 2x, i5)
 end if
 210     continue
 !
@@ -4822,7 +4822,7 @@ end if
         naccs2 = naccs2 + ndsub
 if (debug) then
         write(40, 110) nterms, lim, js, jtestm, naccs1, jds, jtestdm, naccs2
-110     format(8x,'r2neu0 (eta = 0) : numerator converged in ',i6, &
+110     format(8x,'r2neu0 (eta=0) : numerator converged in ',i6, &
                ' terms; ',i6,' terms available.',/,15x,'best r2 at ',i6, &
                ' terms with convergence to ',i2,' digits;',i3,' digits', &
                ' sub. error.',/,15x,'best r2d at ',i6,' terms with', &
