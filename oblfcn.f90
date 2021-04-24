@@ -6,9 +6,9 @@ module param
 end module param
 
 program oblfcn
-!      version 1.27 March 2021
+!      version 1.28 April 2021
 !
-    use param
+  use param
 !
 !  Originally developed over 15 years ago by arnie lee van buren and updated and
 !  improved many times since then. For more information see the github repository:
@@ -1668,7 +1668,7 @@ end if
        wronc = wronca - wroncb
        naccint = -int(log10(abs((wronc - wront) / wront) + dec))
        if(naccint < 0) naccint = 0
-       if(naccint > ndec) naccint = ndec
+       if(naccint > ndec - 1) naccint = ndec - 1
        jacc = int(log10(abs(wronca / wroncb)))
         if(jacc > 0) then
         isubc = isub - jacc
@@ -1972,7 +1972,7 @@ end if
           r2nc * r1dc(li) * ten ** (ir2ne + ir1de(li))
        naccneu0 = -int(log10(abs((wronc - wront) / wront) + dec))
        if(naccneu0 < 0) naccneu0 = 0
-       if(naccneu0 > ndec) naccneu0 = ndec
+       if(naccneu0 > ndec - 1) naccneu0 = ndec - 1
         if(naccneu0 >= minacc .and. naccneu0p >= minacc .and. &
           naccneu0p2 >= minacc) then
         iopint = 0
@@ -2497,8 +2497,8 @@ end if
 if (debug) then
         if(ioparg == 0 .and. iopang == 1) write(50, 1420) arg(jarg), naccs(jarg)
         if(ioparg == 0 .and. iopang == 2) write(50, 1425) arg(jarg), naccs(jarg), naccds(jarg)
-1420      format(1x,'theta = ',f19.14, '   accuracy = ',i2, ' digits.')
-1425      format(1x,'theta = ',f19.14, '  s1 and s1d accuracy = ', i2,' and ',i2,' digits.')
+1420      format(1x,'theta = ',f19.14,'   accuracy = ',i2, ' digits.')
+1425      format(1x,'theta = ',f19.14,'   s1 and s1d accuracy = ', i2,' and ',i2,' digits.')
 
         if(ioparg == 1 .and. iopang == 1) write(50, 1430) barg(jarg), naccs(jarg)
         if(ioparg == 1 .and. iopang == 2) write(50, 1435) barg(jarg), naccs(jarg), naccds(jarg)
@@ -4222,7 +4222,7 @@ end if
     wronc = wronca - wroncb
     naccleg = -int(log10(abs((wronc - wront) / wront) + dec))
     nstest = max(nspsum, nspdsum)
-    if(naccleg > ndec) naccleg = ndec
+    if(naccleg > ndec - 1) naccleg = ndec - 1
      if(nsdrhor1 > 0 .and. naccleg < minacc .and. x <= 0.01e0_knd &
         .and. (naccleg > 1 .or. nstest < 10)) then
      anumt1 = qdsum * r1c * ten ** (ir1e + iqdsum)
@@ -5084,7 +5084,7 @@ end if
     iterm = 0
     if(r2dc /= 0.0e0_knd) iterm = int(log10(abs(r2dc)))
     ir2de = ir2e + iterm
-   r2dc = r2dc * ten ** (-iterm)
+    r2dc = r2dc * ten ** (-iterm)
 if (debug) then
     write(40, 140) jmax, jden, lim, js, jtestm, naccns1, jds, jtestdm, &
            naccns2, naccn, naccd
@@ -5104,6 +5104,7 @@ end if
     wroncm = max(abs(wronca), abs(wroncb))
     nacceta = -int(log10(abs((wronc - wront) / wront) + dec))
     if(nacceta < 0) nacceta = 0
+    if(nacceta > ndec - 1) nacceta = ndec - 1
 160   if(abs(r2c) >= 1.0e0_knd) go to 170
     r2c = r2c * ten
     ir2e = ir2e - 1
