@@ -2548,8 +2548,8 @@ end if
         s1d(li, jarg) = s1dc(jarg)
         is1(li, jarg) = is1e(jarg)
         is1d(li, jarg) = is1de(jarg)
-                nas(li, jarg) = naccs(jarg)
-                nasd(li, jarg) = naccds(jarg)
+        nas(li, jarg) = naccs(jarg)
+        nasd(li, jarg) = naccds(jarg)
 
 if (debug) then
         if(iopang == 1) write(50, 1430) barg(jarg), naccs(jarg)
