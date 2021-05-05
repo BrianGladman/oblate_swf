@@ -549,8 +549,8 @@ end if
     real(knd) eig(lnum), r1c(lnum), r1dc(lnum), r2c(lnum), r2dc(lnum), &
          qdl(lnum), ql(lnum), s1c(lnum, narg), s1dc(lnum, narg)
     integer  ir1e(lnum), ir1de(lnum), ir2e(lnum), ir2de(lnum), &
-                  is1e(lnum, narg), is1de(lnum, narg), match(lnum), &
-                  naccs(lnum, narg), naccds(lnum, narg)
+                  is1(lnum, narg), is1d(lnum, narg), match(lnum), &
+                  nas(lnum, narg), nasd(lnum, narg)
 !
 !  integer and real(knd) arrays with dimension lnum+1
     integer ifajo(lnum + 1)
@@ -2545,12 +2545,12 @@ end if
              itestm, kindd, kindq, s1c_, is1e_, s1dc_, is1de_, naccs_, &
              naccds_, jang, dmlms1, idmlms1e)
         do 1500 jarg = 1, narg
-        s1c(li, jarg) = s1c_(jarg)
-        s1dc(li, jarg) = s1dc_(jarg)
-        is1e(li, jarg) = is1e_(jarg)
-        is1de(li, jarg) = is1de_(jarg)
-        naccs(li, jarg) = naccs_(jarg)
-        naccds(li, jarg) = naccds_(jarg)
+        s1(li, jarg) = s1c(jarg)
+        s1d(li, jarg) = s1dc(jarg)
+        is1(li, jarg) = is1e(jarg)
+        is1d(li, jarg) = is1de(jarg)
+        nas(li, jarg) = naccs(jarg)
+        nasd(li, jarg) = naccds(jarg)
 
 if (debug) then
         if(iopang == 1) write(50, 1430) arg(jarg), naccs_(jarg)
