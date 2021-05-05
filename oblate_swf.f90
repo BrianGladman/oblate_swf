@@ -549,8 +549,8 @@ end if
     real(knd) eig(lnum), r1c(lnum), r1dc(lnum), r2c(lnum), r2dc(lnum), &
          qdl(lnum), ql(lnum), s1c(lnum, narg), s1dc(lnum, narg)
     integer  ir1e(lnum), ir1de(lnum), ir2e(lnum), ir2de(lnum), &
-                  is1e(lnum, narg), is1de(lnum, narg), match(lnum), &
-                  naccs(lnum, narg), naccds(lnum, narg)
+             is1e(lnum, narg), is1de(lnum, narg), match(lnum), &
+             naccs(lnum, narg), naccds(lnum, narg)
 !
 !  integer and real(knd) arrays with dimension lnum+1
     integer ifajo(lnum + 1)
