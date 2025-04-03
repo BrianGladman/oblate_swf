@@ -7,7 +7,7 @@ module oblate_swf
                     r1c, ir1e, r1dc, ir1de, r2c, ir2e, r2dc, ir2de, naccr, &
                     s1c, is1e, s1dc, is1de, naccs, naccds)
 
-!      version 1.28 April 2021
+!      version 1.29 May 2021
 !
 !  Subroutine version of the fortran program oblfcn originally developed
 !  over 15 years ago by arnie lee van buren and updated and improved many
